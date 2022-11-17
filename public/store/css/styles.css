@@ -1,0 +1,45 @@
+.fit-cover {
+    object-fit: cover;
+}
+
+.fit-contain {
+    object-fit: contain;
+}
+
+.from-top {
+    object-position: 100% 0%;
+}
+
+.border-none {
+    border: none !important;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+@media (min-width: 1400px) {
+    .container-fluid {
+        max-width: 95%;
+    }
+    .max-w-50 {
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 992px) {
+    .product-view {
+        flex-direction: column-reverse !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .sm-flex-column {
+        flex-direction: column !important;
+    }
+}
+
+a {
+    color: black !important;
+    text-decoration: none !important;
+}
