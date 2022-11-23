@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Store;
 
+use App\Models\Cart;
+use App\Models\User;
+use App\Models\Catalogue;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Cart;
-use App\Models\Catalogue;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
@@ -73,5 +74,17 @@ class CartController extends Controller
         } else {
             return response()->json(['status' => 'Please Login or Register to Continue']);
         };
+    }
+
+    public function updateUser(Request $request)
+    {
+        $user = User::where('id', Auth::id())->first();
+        $user->phone = $request->input('phone');
+        $user->address = $request->input('address');
+        $user->city = $request->input('city');
+        $user->country = $request->input('country');
+        $user->postalcode = $request->input('postalcode');
+        $user->update();
+        return redirect('cart')->with('status', "Data Successfully Updated");
     }
 }

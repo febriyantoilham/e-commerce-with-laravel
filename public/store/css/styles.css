@@ -18,7 +18,7 @@
     font-weight: bold;
 }
 
-@media (min-width: 1400px) {
+@media (max-width: 1400px) {
     .container-fluid {
         max-width: 95%;
     }
@@ -37,6 +37,30 @@
     .sm-flex-column {
         flex-direction: column !important;
     }
+    .sm-mb-0 {
+        margin-bottom: 0 !important;
+    }
+    .sm-mb-1 {
+        margin-bottom: 0.25rem !important;
+    }
+    .sm-mb-2 {
+        margin-bottom: 0.5rem !important;
+    }
+    .sm-mb-3 {
+        margin-bottom: 1rem !important;
+    }
+    .sm-mb-4 {
+        margin-bottom: 1.5rem !important;
+    }
+    .sm-mb-5 {
+        margin-bottom: 3rem !important;
+    }
+    .sm-mb-auto {
+        margin-bottom: auto !important;
+    }
+}
+
+@media (min-width: 576px) {
 }
 
 a {

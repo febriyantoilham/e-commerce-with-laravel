@@ -82,47 +82,42 @@
               <div class="col-md-8">
                 <div class="card">
                   <div class="card-body">
-                      
-                    <div class="card card-body border card-plain border-radius-lg">
+                    
+                    <div class="card card-body border card-plain border-radius-lg mt-3">
                         <div class="row">
-                            <div class="col-sm-10">
+                            <div class="col-sm-10 sm-mb-4">
                                 <div class="d-flex">
                                     <button style="pointer-events: none;" class="btn btn-icon-only btn-rounded btn-outline-secondary text-black mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">A</button>
                                     <div class="px-3 w-100">
-                                        <p class="text-uppercase text-sm">User Information</p>
-                                        <div class="d-flex">
-                                            <p class="text-capitalize font-weight-bolder me-3">{{ Auth::user()->name }}</p>
-                                            <p class="font-weight-bolder">({{ Auth::user()->email }})</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-2 d-flex align-items-center justify-content-center">
-                                <button type="button" class="btn btn-light m-0">CHANGE</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-body border card-plain border-radius-lg mt-3">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="d-flex">
-                                    <button style="pointer-events: none;" class="btn btn-icon-only btn-rounded btn-outline-secondary text-black mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">B</button>
-                                    <div class="px-3 w-100">
                                         <p class="text-uppercase text-sm">Shipping Address</p>
-                                        <div style="">
-                                            <p class="text-capitalize font-weight-bolder mb-2">Brady Cooper, New Civil Colony, Salt Lake City, Utah, United State, 2971 Avenue</p>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-md text-capitalize">{{ Auth::user()->name }} {{ Auth::user()->lname }}</h6>
+                                            <p class="text-sm text-secondary mb-0">{{ Auth::user()->email }}</p>
+                                            <p class="text-sm text-secondary mb-0">{{ Auth::user()->phone }}</p>
+                                            <p class="text-sm text-secondary mb-0">{{ Auth::user()->address }}, {{ Auth::user()->city }}, {{ Auth::user()->country }}</p>
+                                            <p class="text-sm text-secondary mb-0">{{ Auth::user()->postalcode }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-2 d-flex align-items-center justify-content-center">
-                                <button type="button" class="btn btn-light m-0">CHANGE</button>
+                                <!-- Button trigger modal -->
+                                @if (Auth::user()->address !== "")
+                                    <button type="button" class="btn btn-light m-0" data-bs-toggle="modal" data-bs-target="#shippingaddressmodal">
+                                        Change
+                                    </button>
+                                    @else
+                                    <button type="button" class="btn btn-light m-0" data-bs-toggle="modal" data-bs-target="#shippingaddressmodal">
+                                        Add Address
+                                    </button>
+                                    @endif
+                                
                             </div>
                         </div>
                     </div>
                     <div class="card card-body border card-plain border-radius-lg mt-3">
                         <div class="d-flex">
-                            <button style="pointer-events: none;" class="btn btn-icon-only btn-rounded btn-outline-secondary text-black mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">C</button>
+                            <button style="pointer-events: none;" class="btn btn-icon-only btn-rounded btn-outline-secondary text-black mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">B</button>
                             <div class="px-3 w-100">
                                 <p class="text-uppercase text-sm">Payment Method</p>
                             </div>
@@ -231,6 +226,72 @@
     </div>
     @endif
 
+    <!-- Modal -->
+    <div class="modal fade" id="shippingaddressmodal" tabindex="-1" aria-labelledby="shippingAddressModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-lg-down modal-lg p-4">
+            <form action="{{ url('updateUser') }}" method="POST" enctype="multipart/form-data">
+            @method('PUT')
+            @csrf
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="shippingAddressModalLabel">Shipping Address</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">First name</label>
+                                    <input class="form-control text-capitalize" name="name" type="text" value="{{ Auth::user()->name }}" placeholder="First Name" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="form-control-label">Email address</label>
+                                        <input class="form-control" name="email" type="email" value="{{ Auth::user()->email }}" placeholder="Email Address" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="form-control-label">Phone Number</label>
+                                        <input class="form-control" name="phone" type="text" value="{{ Auth::user()->phone }}" placeholder="Phone Number">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="form-control-label">Address</label>
+                                        <input class="form-control" name="address" type="text" value="{{ Auth::user()->address }}" placeholder="Address">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="form-control-label">City</label>
+                                        <input class="form-control" name="city" type="text" value="{{ Auth::user()->city }}" placeholder="City">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="form-control-label">Country</label>
+                                        <input class="form-control" name="country" type="text" value="{{ Auth::user()->country }}" placeholder="Country">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="form-control-label">Postal code</label>
+                                        <input class="form-control" name="postalcode" type="text" value="{{ Auth::user()->postalcode }}" placeholder="Postal Code">
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     
 @endsection
 
