@@ -33,7 +33,7 @@
                 <p>{{ $product->description }}</p>
             </div>
         </div>
-        <div class="" style="background-color:blanchedalmond; height: 100%; width: 100%">
+        <div class="" style="height: 100%; width: 100%">
             <img src="{{ asset('assets/uploads/products/'.$product->img) }}" alt="" class="fit-cover from-top" height="100%" width="100%">
         </div>
     </div>

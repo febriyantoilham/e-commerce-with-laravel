@@ -80,8 +80,15 @@ $(document).ready(function () {
             url: "delete-cart-item",
             data: { product_id: product_id },
             success: function (response) {
-                window.location.reload();
-                swal("", response.status, "success");
+                // window.location.reload();
+                // swal("", response.status, "success");
+                swal({
+                    title: "Wow!",
+                    text: response.status,
+                    type: "success",
+                }).then(function () {
+                    window.location.reload();
+                });
             },
         });
     });
