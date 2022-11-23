@@ -25,7 +25,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ Request::is('Catalogue') || Request::is('product_types') ? 'active' : ''}}" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <a class="nav-link {{ Request::is('catalogue') || Request::is('product_types') ? 'active' : ''}}" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-collection text-warning text-sm opacity-10"></i>
           </div>
@@ -34,7 +34,7 @@
       </li>
       <div class="collapse" id="collapseExample">
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('catalogue') }}">
+          <a class="nav-link {{ Request::is('catalogue') ? 'active' : ''}}" href="{{ url('catalogue') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-cart text-warning text-sm opacity-10"></i>
             </div>
@@ -42,7 +42,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('product_types') }}">
+          <a class="nav-link {{ Request::is('product_types') ? 'active' : ''}}" href="{{ url('product_types') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-warning text-sm opacity-10"></i>
             </div>
@@ -51,17 +51,25 @@
         </li>
       </div>
       <li class="nav-item">
-        <a class="nav-link " href="../pages/billing.html">
+        <a class="nav-link {{ Request::is('orders') ? 'active' : ''}}" href="{{ url('orders') }}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
           </div>
-          <span class="nav-link-text ms-1">Billing</span>
+          <span class="nav-link-text ms-1">Orders</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('users') ? 'active' : ''}}" href="{{ url('users') }}">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">Users</span>
         </a>
       </li>
 
       
       
-      <li class="nav-item mt-3">
+      {{-- <li class="nav-item mt-3">
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
       </li>
       <li class="nav-item">
@@ -87,7 +95,7 @@
           </div>
           <span class="nav-link-text ms-1">Sign Up</span>
         </a>
-      </li>
+      </li> --}}
     </ul>
   </div>
 </aside>

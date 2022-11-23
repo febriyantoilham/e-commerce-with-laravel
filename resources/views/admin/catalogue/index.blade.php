@@ -18,9 +18,6 @@
                       <tr>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
-                        {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Stars</th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Image</th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product Type</th> --}}
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Stars</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Image</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product Type</th>

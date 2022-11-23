@@ -44,7 +44,7 @@
                                         @else
                                         <span class="badge badge-sm bg-gradient-secondary">Non-Active</span>
                                     @endif
-                              </td>
+                            </td>
                             <td class="align-middle text-center text-sm">
                                     @if ($product_type->popular == 1)
                                         <span class="badge badge-sm bg-gradient-success">Yes</span>
