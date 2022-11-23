@@ -60,7 +60,6 @@ $(document).ready(function () {
             $(this).closest(".product_data").find(".qty-input").val(value);
         }
     });
-
     $(".delete-item").click(function (e) {
         e.preventDefault();
 
@@ -89,6 +88,31 @@ $(document).ready(function () {
                 }).then(function () {
                     window.location.reload();
                 });
+            },
+        });
+    });
+    $(".qty-update").click(function (e) {
+        e.preventDefault();
+
+        var product_id = $(this)
+            .closest(".product_data")
+            .find(".product_id")
+            .val();
+
+        var qty = $(this).closest(".product_data").find(".qty-input").val();
+
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+        });
+
+        $.ajax({
+            method: "POST",
+            url: "update-cart",
+            data: { product_id: product_id, qty: qty },
+            success: function (response) {
+                window.location.reload();
             },
         });
     });

@@ -36,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::post('add-to-cart', [CartController::class, 'addProduct']);
 Route::post('delete-cart-item', [CartController::class, 'deleteCartItem']);
+Route::post('update-cart', [CartController::class, 'updateCart']);
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard','Admin\AdminController@index');

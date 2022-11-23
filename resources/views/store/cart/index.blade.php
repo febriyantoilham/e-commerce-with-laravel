@@ -31,7 +31,6 @@
                         <h4 class="mb-0 font-weight-bold">Your Order</h4>
                       </div>
                     </div>
-                    
                     <div class="card-body p-0">
                         <hr class="horizontal dark my-4">
                         @php $total = 0; @endphp
@@ -52,9 +51,9 @@
                                     </div>
                                     <div class="">
                                         <input type="hidden" class="m-0 p-0 product_id" value="{{ $item->product_id }}">
-                                        <button type="button" class="m-0 px-3 py-2 dec-btn btn btn-dark">-</button>
-                                        <input type="button" class="m-0 px-4 py-2 btn btn-dark qty-input text-center" value="{{ $item->qty }}">
-                                        <button type="button" class="m-0 px-3 py-2 inc-btn btn btn-dark">+</button>
+                                        <button type="button" class="m-0 px-3 py-2 dec-btn qty-update btn btn-dark">-</button>
+                                        <input type="button" class="m-0 px-4 py-2 btn btn-dark qty-input text-center" value="{{ $item->qty }}" style="pointer-events: none;">
+                                        <button type="button" class="m-0 px-3 py-2 inc-btn qty-update btn btn-dark">+</button>
                                     </div>
                                 </div>
                                 <a class="col-1 btn btn-outline-danger text-danger delete-item p-0 m-0 d-flex align-items-center justify-content-center"><i class="far fa-trash-alt"></i></a>
@@ -88,7 +87,7 @@
                         <div class="row">
                             <div class="col-sm-10">
                                 <div class="d-flex">
-                                    <button class="btn btn-icon-only btn-rounded btn-outline-secondary text-black mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">A</button>
+                                    <button style="pointer-events: none;" class="btn btn-icon-only btn-rounded btn-outline-secondary text-black mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">A</button>
                                     <div class="px-3 w-100">
                                         <p class="text-uppercase text-sm">User Information</p>
                                         <div class="d-flex">
@@ -107,7 +106,7 @@
                         <div class="row">
                             <div class="col-sm-10">
                                 <div class="d-flex">
-                                    <button class="btn btn-icon-only btn-rounded btn-outline-secondary text-black mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">B</button>
+                                    <button style="pointer-events: none;" class="btn btn-icon-only btn-rounded btn-outline-secondary text-black mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">B</button>
                                     <div class="px-3 w-100">
                                         <p class="text-uppercase text-sm">Shipping Address</p>
                                         <div style="">
@@ -123,7 +122,7 @@
                     </div>
                     <div class="card card-body border card-plain border-radius-lg mt-3">
                         <div class="d-flex">
-                            <button class="btn btn-icon-only btn-rounded btn-outline-secondary text-black mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">C</button>
+                            <button style="pointer-events: none;" class="btn btn-icon-only btn-rounded btn-outline-secondary text-black mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">C</button>
                             <div class="px-3 w-100">
                                 <p class="text-uppercase text-sm">Payment Method</p>
                             </div>
@@ -229,7 +228,7 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
     @endif
 
     
