@@ -17,4 +17,9 @@ class OrderItem extends Model
         'qty',
         'price',
     ];
+
+    public function products()
+    {
+        return $this->belongsTo(Catalogue::class, 'product_id', 'id');
+    }
 }

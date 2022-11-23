@@ -57,20 +57,20 @@
                                         @elseif ($item->status == "shipping")
                                         <span class="badge badge-sm bg-gradient-primary">Shipping</span>
                                             @elseif ($item->status == "delivered")
-                                            <span class="badge badge-sm bg-gradient-primary">delivered</span>
+                                            <span class="badge badge-sm bg-gradient-primary">Delivered</span>
                                                 @elseif ($item->status == "finished")
-                                                <span class="badge badge-sm bg-gradient-light">finished</span>
+                                                <span class="badge badge-sm bg-gradient-light">Finished</span>
                                                     @else
                                                     <span class="badge badge-sm bg-gradient-danger">Canceled</span>
                                 @endif
                             </td>
                             <td class="align-middle text-center">
-                                <a href="{{ url('edit_item/'.$item->id) }}" class="text-secondary px-2 font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                <a href="{{ url('edit_order/'.$item->id) }}" class="text-secondary px-2 font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                     <i class="fa fa-pen text-xs"></i>
                                 </a>
-                                {{-- <a href="{{ url('delete_item/'.$item->id) }}" class="text-secondary px-2 font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                <a href="{{ url('delete_order/'.$item->id) }}" class="text-secondary px-2 font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                     <i class="fa fa-trash text-xs"></i>
-                                </a> --}}
+                                </a>
                             </td>
                           </tr>
                         @endforeach

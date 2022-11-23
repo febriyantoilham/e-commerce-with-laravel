@@ -60,10 +60,14 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('edit_item/{id}', [CatalogueController::class, 'edit']);
     Route::put('update_item/{id}', [CatalogueController::class, 'update']);
     Route::get('delete_item/{id}', [CatalogueController::class, 'destroy']);
-
+    
     // Users
     Route::get('users',[AdminController::class, 'index']);
     
     // Orders
     Route::get('orders',[OrderController::class, 'index']);
+    Route::get('edit_order/{id}', [OrderController::class, 'edit']);
+    Route::put('update_order/{id}', [OrderController::class, 'update']);
+    Route::get('delete_order/{id}', [OrderController::class, 'destroy']);
+    Route::get('delete_order_item/{id}', [OrderController::class, 'destroy_item']);
 });
