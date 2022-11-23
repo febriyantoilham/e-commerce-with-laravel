@@ -33,6 +33,7 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::get('cart', [CartController::class, 'getCart']);
     Route::put('updateUser', [CartController::class, 'updateUser']);
+    Route::post('placeOrder', [CartController::class, 'placeOrder']);
 });
 
 Route::post('add-to-cart', [CartController::class, 'addProduct']);

@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Store;
 
 use App\Models\Cart;
 use App\Models\User;
+use App\Models\Order;
 use App\Models\Catalogue;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
@@ -86,5 +88,39 @@ class CartController extends Controller
         $user->postalcode = $request->input('postalcode');
         $user->update();
         return redirect('cart')->with('status', "Data Successfully Updated");
+    }
+
+    public function placeOrder(Request $request)
+    {
+        $order = new Order();
+        $user = User::find(Auth::id());
+        $order->user_id = $user->id;
+        $order->name = $user->name;
+        $order->email = $user->email;
+        $order->phone = $user->phone;
+        $order->address = $user->address;
+        $order->city = $user->city;
+        $order->country = $user->country;
+        $order->postalcode = $user->postalcode;
+        $order->payment_method = $request->input('payment_method');
+        $order->payment_status = "unpaid";
+        $order->payment_reference = "";
+        $order->reference = 'DO'.rand(1111,9999);
+        $order->save();
+
+        $cartItems = Cart::where('user_id', Auth::id())->get();
+        foreach ($cartItems as $item) {
+            OrderItem::create([
+                'order_id' => $order->id,
+                'product_id' => $item->product_id,
+                'product_name' => $item->products->name,
+                'qty' => $item->qty,
+                'price' => $item->products->price,
+            ]);
+        }
+
+        Cart::destroy($cartItems);
+        
+        return redirect('/')->with('status', 'Order Success');
     }
 }

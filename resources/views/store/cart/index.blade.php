@@ -122,7 +122,7 @@
                                 <p class="text-uppercase text-sm">Payment Method</p>
                             </div>
                         </div>
-                        <div class="mt-3">
+                        {{-- <div class="mt-3">
                             <button class="btn btn-light bg-white w-100" type="button" data-bs-toggle="collapse" data-bs-target="#debit" aria-expanded="true" aria-controls="debit">
                                 <div class="d-flex align-items-center">
                                     <div class="d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; border: 1px solid black; border-radius: 10px; margin-right: 20px;">
@@ -160,19 +160,28 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="mt-3">
                             <button class="btn btn-light bg-white w-100" type="button" data-bs-toggle="collapse" data-bs-target="#mbanking" aria-expanded="true" aria-controls="mbanking">
                                 <div class="d-flex align-items-center">
                                     <div class="d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; border: 1px solid black; border-radius: 10px; margin-right: 20px;">
                                         <h4 class="m-0 p-0"><i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i></h4>
                                     </div>
-                                    <p class="text-capitalize font-weight-bolder mb-2">Internet Banking</p>
+                                    <p class="text-capitalize font-weight-bolder mb-2">Internet Banking / Transfer Bank</p>
                                 </div>
                             </button>
                             <div class="collapse" id="mbanking">
                                 <div class="card card-body">
-                                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                                    <h6 class="mb-1 text-md text-capitalize">Internet Banking / Transfer Bank Payment (Manual Confirmation)</h6>
+                                    <p class="text-sm text-secondary mb-0">Payment Guide :</p>
+                                    <p class="mb-4 text-sm text-secondary mb-0">Please do a payment of your order and send the proof of payment in order menu.</p>
+                                    <form action="{{ url('placeOrder') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                        <input type="hidden" value="transfer bank" name="payment_method">
+                                        <button type="submit" class="btn btn-light m-0">
+                                            Place Order
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -187,7 +196,16 @@
                             </button>
                             <div class="collapse" id="COD">
                                 <div class="card card-body">
-                                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                                    <h6 class="mb-1 text-md text-capitalize">Cash on Delivery Payment</h6>
+                                    <p class="text-sm text-secondary mb-0">Payment Guide :</p>
+                                    <p class="mb-4 text-sm text-secondary mb-0">Pay when the courier arrive with your order at your place</p>
+                                    <form action="{{ url('placeOrder') }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                            <input type="hidden" value="cash on delivery" name="payment_method">
+                                            <button type="submit" class="btn btn-light m-0">
+                                                Place Order
+                                            </button>
+                                        </form>
                                 </div>
                             </div>
                         </div>
