@@ -30,8 +30,8 @@
                             <td>
                               <div class="d-flex px-2 py-1">
                                 <div class="d-flex flex-column justify-content-center">
-                                  <h6 class="mb-0 text-sm">{{ $item->name }}</h6>
-                                  <p class="text-xs text-secondary mb-0">{{ $item->description }}</p>
+                                  <h6 class="mb-0 text-sm text-capitalize">{{ $item->name }}</h6>
+                                  <p class="text-xs text-secondary mb-0 text-capitalize">{{ $item->description }}</p>
                                 </div>
                               </div>
                             </td>
@@ -50,7 +50,7 @@
                               </div>
                             </td>
                             <td>
-                              <p class="text-xs text-secondary mb-0 text-center">{{ $item->product_type }}</p>
+                              <p class="text-xs text-secondary mb-0 text-center text-capitalize">{{ $item->product_type }}</p>
                             </td>
                             <td class="align-middle text-center">
                                 <a href="{{ url('edit_item/'.$item->id) }}" class="text-secondary px-2 font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">

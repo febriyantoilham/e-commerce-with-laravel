@@ -28,6 +28,8 @@ use PhpParser\Node\Stmt\Catch_;
 
 Route::get('/', [StoreController::class, 'index']);
 Route::get('details/{id}', [StoreController::class, 'product_view']);
+Route::get('user_catalog', [StoreController::class, 'index_catalog']);
+Route::get('order_details/{id}', [StoreController::class, 'order_details']);
 
 Auth::routes();
 
@@ -37,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('cart', [CartController::class, 'getCart']);
     Route::put('updateUser', [CartController::class, 'updateUser']);
     Route::post('placeOrder', [CartController::class, 'placeOrder']);
+    Route::get('orderList', [StoreController::class, 'orderList']);
 });
 
 Route::post('add-to-cart', [CartController::class, 'addProduct']);

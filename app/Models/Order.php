@@ -26,4 +26,9 @@ class Order extends Model
         'message',
         'reference',
     ];
+
+    public function products()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 }

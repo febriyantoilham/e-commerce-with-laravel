@@ -10,7 +10,7 @@
             <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Catalog</a>
+            <a class="nav-link" href="{{ url('user_catalog') }}">Catalog</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Blog</a>
@@ -40,7 +40,7 @@
                         <li><a class="dropdown-item" href="{{ url('/dashboard') }}">{{ __('Dashboard') }}</a></li>
                       @endif
                       <li><a class="dropdown-item" href="#">My Profile</a></li>
-                      <li><a class="dropdown-item" href="#">My Orders</a></li>
+                      <li><a class="dropdown-item" href="{{ url('orderList') }}">My Orders</a></li>
                       <li>
                       <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                           {{ __('Logout') }}

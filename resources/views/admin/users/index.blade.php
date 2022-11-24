@@ -32,7 +32,7 @@
                             <td>
                               <div class="d-flex px-2 py-1">
                                 <div class="d-flex flex-column justify-content-center">
-                                  <h6 class="mb-0 text-sm">{{ $user->name }}</h6>
+                                  <h6 class="mb-0 text-sm text-capitalize">{{ $user->name }}</h6>
                                   <p class="text-xs text-secondary mb-0">{{ $user->email }}</p>
                                 </div>
                               </div>
