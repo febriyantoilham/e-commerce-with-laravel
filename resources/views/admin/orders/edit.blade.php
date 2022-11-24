@@ -43,7 +43,7 @@
                 <div>
                     <button class="card card-body border card-plain d-flex align-items-center flex-row btn btn-light w-100" type="button" data-bs-toggle="collapse" data-bs-target="#UserInformation" aria-expanded="true" aria-controls="UserInformation">
                         <div class="d-flex align-items-center">
-                            <a style="pointer-events: none;" class="btn btn-icon-only btn-rounded btn-outline-primary m-0 me-3 btn-sm">A</a>
+                            <a style="pointer-events: none;" class="btn btn-icon-only btn-rounded btn-outline-success m-0 me-3 btn-sm">A</a>
                             <p class="text-uppercase text-sm m-0">User Contact Information</p>
     
                         </div>
@@ -88,7 +88,7 @@
                 <div>
                     <button class="card card-body border card-plain d-flex align-items-center flex-row btn btn-light w-100" type="button" data-bs-toggle="collapse" data-bs-target="#ProductDetails" aria-expanded="true" aria-controls="ProductDetails">
                         <div class="d-flex align-items-center">
-                            <a style="pointer-events: none;" class="btn btn-icon-only btn-rounded btn-outline-primary m-0 me-3 btn-sm">A</a>
+                            <a style="pointer-events: none;" class="btn btn-icon-only btn-rounded btn-outline-success m-0 me-3 btn-sm">B</a>
                             <p class="text-uppercase text-sm m-0">Product Details</p>
     
                         </div>
@@ -152,7 +152,7 @@
                     <button class="card card-body border card-plain d-flex align-items-center flex-row btn btn-light w-100" type="button" data-bs-toggle="collapse" data-bs-target="#Payment" aria-expanded="true" aria-controls="Payment">
                         <div class="w-100 d-flex flex-row align-items-center justify-content-between">
                             <div class="d-flex flex-row">
-                                <a style="pointer-events: none;" class="btn btn-icon-only btn-rounded btn-outline-primary m-0 me-3 btn-sm">A</a>
+                                <a style="pointer-events: none;" class="btn btn-icon-only btn-rounded btn-outline-success m-0 me-3 btn-sm">C</a>
                                 <p class="text-uppercase text-sm m-0">Payment Details</p>
                             </div>
                             <div class="d-flex flex-row">
@@ -200,7 +200,8 @@
                     <label for="">Message</label>
                     <textarea name="message" id="" rows="3" class="form-control">{{ $order_item->message }}</textarea>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 d-flex justify-content-end">
+                    <a class="btn btn-danger me-3" href="{{ url('orders') }}" role="button">Cancel</a>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>

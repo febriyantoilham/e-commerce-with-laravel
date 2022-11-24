@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CatalogueController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductTypesController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Store\CartController;
 use App\Http\Controllers\Store\StoreController;
 use Illuminate\Support\Facades\Auth;
@@ -62,7 +63,10 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('delete_item/{id}', [CatalogueController::class, 'destroy']);
     
     // Users
-    Route::get('users',[AdminController::class, 'index']);
+    Route::get('users',[UserController::class, 'index']);
+    Route::get('edit_user/{id}', [UserController::class, 'edit']);
+    Route::put('update_user/{id}', [UserController::class, 'update']);
+    Route::get('delete_user/{id}', [UserController::class, 'destroy']);
     
     // Orders
     Route::get('orders',[OrderController::class, 'index']);

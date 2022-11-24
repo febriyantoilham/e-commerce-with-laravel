@@ -37,14 +37,15 @@
                     </div>
                     @if ($catalogue_item->img)
                         <div class="col-md-12 mb-3">
-                            <img src="{{ asset('assets/uploads/products/'.$catalogue_item->img) }}" alt="" height="500" width="500">
+                            <img src="{{ asset('assets/uploads/products/'.$catalogue_item->img) }}" style="max-height: 500px; max-width: 100%;" class=" border-radius-xl">
                         </div>
                     @endif
                     <div class="col-md-12 mb-3">
                         <label for="">Product Images</label>
                         <input type="file" name="img" class="form-control">
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 d-flex justify-content-end">
+                        <a class="btn btn-danger me-3" href="{{ url('catalogue') }}" role="button">Cancel</a>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
